@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title>Media Cube</title>
+    <meta charset="utf-8" />
+    <meta name=viewport content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:700%7cOpen+Sans:400,600&display=swap" rel="stylesheet">
+    <style>
+      /*
+      0000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000
+      000000000000                                       0000000000
+      000000000000000         Alexandr Pasko         00000000000000
+      000000000000        Web Development Diploma        0000000000
+      000000000000000           2019-2020           000000000000000
+      000000000000                                       0000000000
+      0000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000
+      */
+      body{
+        position: relative;
+        font-family: "Open Sans", Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        background-color: #f7f9fa;
+        margin: 0;
+        color: #161a1c;
+      }
+      h1, h2, h3, h4, h5, h6{
+        font-family: Nunito, Arial, Helvetica, sans-serif;
+      }
+      .wrapper{ /*all main sections*/
+        max-width: 960px;
+        min-height: 100px;
+        margin: 0 auto;
+        box-sizing: border-box;
+        display: block;
+      }
+/*Navigation*/  
+      nav{ /*body area*/
+        background-color: #fff;
+        height: 140px;
+      }
+      nav .wrapper{ /*wrapper area*/
+        position: relative;
+      }
+      
+      .logo_nav{ /*logo*/
+        float: left;
+        width: 70px;
+        height: 70px;
+        margin: 35px 0px;
+      }
+      #main_nav{ /*navigation*/
+        position: absolute;
+        right: 0px;
+        top: 57px;
+      }
+      .links_nav{ /*nav divs*/
+        display: inline-block;
+        padding: 7px;
+        width: 80px;
+        text-align: center;
+      }
+      nav a{ /*nav links*/
+        text-decoration: none;
+        font-weight: 600;
+        color: #888;
+        margin: 1px;
+        padding: 7px;
+      }
+      div#main_nav a:first-child{ /*home active*/
+        padding: 7px;
+        background-color: #8eb43e;
+        color: #fff;
+      }
+      div#main_nav a:hover{/*hover links*/
+        background-color: #325460;
+        color: #fff;
+      }
+      div#main_nav a#search_icon:hover{ /*avoidance of search hower*/
+        background-color: #fff;
+      }
+      div#search{/*search icon*/
+        color: #888;
+        width: 30px;
+      }
+      span.arrow_down{
+        position: absolute;
+        -webkit-transform: rotateZ(90deg);
+        transform: rotateZ(90deg);
+      }
+      
+/*Header*/ 
+      header{/*wrapper area*/
+        min-height: 400px;
+        padding-top: 70px;
+        color: #fff;
+        margin-bottom: -120px;
+        background-image: url(background.jpg);
+        background-size: cover;
+      }
+      .header_blocks{ /*containers*/
+        position: relative;
+        float: left;
+        width: 316px;
+      }
+      div + div.header_blocks{/*right container*/
+        width: 480px;
+        float: right;
+        text-align: right;
+        line-height: 1.5em;
+      }
+      header h1{ /*main heading*/
+        text-transform: uppercase;
+        font-size: 3em;
+        font-weight: 700;
+        margin-top: 0px;
+        margin-bottom: 0px;
+      }
+      header h2{/*secondary heading*/
+        font-size: 2em;
+        font-weight: 700;
+        margin-top: 0px;
+      }
+      header p{ /*extra space for CTA*/
+        margin-bottom: 30px;
+      }
+      header a{ /*CTA*/
+        position: absolute;
+        color: #fff;
+        text-decoration: none;
+        padding: 5px 20px;
+        width: 70px;
+        border: 2px solid #fff;
+        right: 0px;
+      }
+      header a:hover{
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+/*Main*/
+      main.wrapper{ /*main content area*/
+        /*position: absolute;*/ /*need for IE, but goes wrong with Chrome*/
+        background-color: #fff;
+        min-height: 500px;
+        text-align: left;
+        padding: 1px 40px 40px 40px;
+      }
+      main h1{
+        margin-top: 40px;
+        margin-bottom: 50px;
+        text-align: center;
+      }
+      #cube{ /*container for a cube*/
+        position: relative;
+        width: 450px;
+        height: 450px;
+        margin: 30px auto 60px auto;
+        -webkit-perspective: 1800px;
+        perspective: 1800px;
+      }
+      #cube_body{
+        position: absolute;
+        -webkit-transform-origin: 225px 225px 0;
+        transform-origin: 225px 225px 0;
+        -webkit-transform-style: preserve-3d;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        background-color: #f00;
+        -webkit-animation: movement 10s linear forwards;
+        animation: movement 10s linear forwards;
+      }
+      @-webkit-keyframes movement{
+        0%{
+          -webkit-transform: rotateX(0deg) rotateY(0deg);
+          transform: rotateX(0deg) rotateY(0deg);
+        }
+        100%{
+          -webkit-transform: rotateX(720deg) rotateY(1065deg);
+          transform: rotateX(720deg) rotateY(1065deg);
+        }
+      }
+      @keyframes movement{
+        0%{
+          -webkit-transform: rotateX(0deg) rotateY(0deg);
+          transform: rotateX(0deg) rotateY(0deg);
+        }
+        100%{
+          -webkit-transform: rotateX(720deg) rotateY(1065deg);
+          transform: rotateX(720deg) rotateY(1065deg);
+        }
+      }
+      .side{
+        position: absolute;
+        width: 450px;
+        height: 450px;
+        box-sizing: border-box;
+        opacity: 1;
+      }
+      #back_side{
+        background-color: #d4d4d4;
+        -webkit-transform: translateZ(-225px);
+        transform: translateZ(-225px);
+      }
+      #front_side{
+        background-color: #f7f9fa;
+        -webkit-transform: translateZ(225px);
+        transform: translateZ(225px);
+      }
+      #left_side{
+        background-color: #325460;
+        -webkit-transform: rotateY(90deg) translateZ(-225px);
+        transform: rotateY(90deg) translateZ(-225px);
+      }
+      #right_side{
+        background-color: #325460;
+        -webkit-transform: rotateY(90deg) translateZ(225px);
+        transform: rotateY(90deg) translateZ(225px);
+      }
+      #top_side{
+        background-color: #8eb43e;
+        -webkit-transform: rotateX(90deg) translateZ(225px);
+        transform: rotateX(90deg) translateZ(225px);
+      }
+      #bottom_side{
+        background-color: #8eb43e;
+        -webkit-transform: rotateX(90deg) translateZ(-225px);
+        transform: rotateX(90deg) translateZ(-225px);
+      }
+      .line{
+        width: 100%;
+        height: 1px;
+        background-color: #d4d4d4;
+        margin-left: 0px;
+        margin-top: 100px;
+      }
+      
+/*Form*/
+      main h3{
+        text-align: left;
+        margin-left: 16px;
+      }
+      main h1:nth-of-type(2){
+        margin-bottom: 10px;
+      }
+      fieldset{
+        width: 400px;
+        border: none;
+        float: left;
+        margin-top: 15px;
+      }
+      fieldset + fieldset{
+        float: right;
+      }
+      legend{
+        font-family: Nunito, Arial, Helvetica, sans-serif;
+      }
+      .clear_both{
+        clear: both;
+      }
+      label{
+        clear: both;
+        width: 130px;
+        display: block;
+        float: left;
+      }
+      input, textarea{
+        width: 230px;
+        height: 24px;
+        border: 1px solid #d4d4d4;
+      }
+      input:hover, textarea:hover{
+        background-color: #f7f9fa;
+        border: 1px solid #81969d;
+      }
+      input[type="submit"],
+      input[type="reset"]{
+        background-color: #8eb43e;
+        width: 100px;
+        border: none;
+        height: 30px;
+        font-size: 16px;
+        color: #fff;
+        text-align: center;
+        margin: 16px;
+        margin-bottom: 30px;
+      }
+      input[type="reset"]{
+        background-color: #d4d4d4;
+        color: #161a1c;
+        margin-left: 10px;
+      }
+      input[type="submit"]:hover,
+      input[type="reset"]:hover{
+        background-color: #325460;
+        color: #fff;
+      }
+/*Before Footer*/      
+      p.closure{
+        text-align: center;
+        color: #888;
+        margin-top: 60px;
+        line-height: 2em;
+        padding: 0px 10px;
+      }
+      a.closure{
+        border: 2px solid #d4d4d4;
+        text-decoration: none;
+        color: #888;
+        padding: 7px 12px;
+      }
+      a.closure:hover{
+        border-color: #325460;
+        color: #325460;
+      }
+      div.center{
+        width: 118px;
+        margin: 40px auto 60px auto;
+      }
+/*Footer*/
+      footer{ /*footer section*/
+        background-color: #161a1c;
+        color: #fff;
+        min-height: 250px;
+        padding-top: 40px;
+        padding-bottom: 50px;
+      } 
+      div.logo_footer{ /*logo*/
+        width: 25px;
+        height: 25px;
+      } /*three main columns in the footer*/
+      .wrapper_blocks{
+        box-sizing: border-box;
+        float: left;
+        width: 455px;
+      }
+      .wrapper_blocks:last-of-type{
+        float: right;
+      }
+      .wrapper_blocks:first-of-type{
+        padding: 15px 40px 0px 0px;
+      }
+      div.logo_footer{
+        margin: 158px auto 0 auto;
+      }
+      footer a{ /*all links*/
+        text-decoration: none;
+        color: #fff;
+        line-height: 2em;
+        font-size: 0.7em;
+        font-weight: 700;
+      }
+      footer a:hover, /*hovered links*/
+       .footer_links a:hover{
+        color: #888;
+      }
+      footer li{ 
+        list-style-type: none;
+        color: #fff;
+      }
+      footer p{
+        font-size: 0.7em;
+        line-height: 1.8em;
+        margin-top: 5px;
+      }
+      .wrapper_logo{ /*div with logo inside*/
+        width: 50px;
+      }
+      .footer_links a, /*main links*/
+      a.footer_links{
+        color: #8eb43e;
+        font-size: 0.8em;
+        text-transform: uppercase;
+        font-weight: 700;
+        line-height: 2em;
+      }
+      footer ul.footer{ /*three columns*/
+        width: 100px;
+        float: right;
+      }
+      div.footer_line{ /*lines*/
+        height: 1px;
+        width: 455px;
+        background-color: #444;
+        margin-top: 170px;
+      }
+      div.first_line{
+        height: 1px;
+        width: 455px;
+        background-color: #444;
+        margin-top: 45px;
+      }
+      p.secondary_text{
+        color: #888;
+        margin-top: 25px;
+      }
+      .wrapper_blocks p.bottom_block{ /*bottom block*/
+        color: #888;
+        text-align: right;
+        font-size: 0.7em;
+        margin-top: 25px;
+      }
+      p.bottom_block a{ /*bottom links*/
+        color: #888;
+        text-align: left;
+        font-size: 1em;
+        margin: 1em;
+      }
+      p.bottom_block a:hover{
+        color: #fff;
+      }
+      
+/* Media Queries for Responsive Desidn*/     
+      
+/* if width less than desktop */      
+      @media screen and (max-width: 959px){
+        .wrapper{
+          width: 100%;
+          padding: 0px 40px 0px 40px;
+        }
+        /*nav*/
+        .links_nav{
+          width: 60px;
+        }
+        nav a{
+          margin: -2px;
+        }
+        /*header*/
+        .wrapper .header_blocks{
+          width: 100%;
+          display: block;
+          text-align: center;
+          float: none;
+          box-sizing: border-box;
+        }
+        header{
+          padding-top: 30px;
+          margin-bottom: -90px;
+          
+        }
+        header a{
+          position: relative;
+        }
+        /*main*/
+        .wrapper fieldset{
+          float: none;
+        }
+        /*footer*/
+        .wrapper .wrapper_blocks{
+          width: 280px;
+        }
+        .wrapper .wrapper_logo{
+          display: none;
+        }
+        .wrapper_blocks + .wrapper_blocks{
+          width: 55%;
+          position: relative;
+        }
+        footer ul.footer{
+          width: 18%;
+          padding: 0px;
+          margin-left: 40px;
+        }
+        div.footer_line,
+        div.first_line{
+          display: none;
+        }
+        .wrapper_blocks p.bottom_block{
+          position: absolute;
+          top: 164px;
+          right: 0px;
+        }
+        footer{
+          padding-bottom: 0px;
+        }
+        
+      }
+      
+/* if width of mobile devices */     
+      @media screen and (max-width: 767px){
+        main.wrapper{
+          padding-bottom: 20px;
+        }
+        /*nav*/
+        .logo_nav img{
+          width: 50px;
+          height: 50px;
+        }
+        nav{
+          height: 120px;
+        }
+        #main_nav{
+          top: 42px;
+          font-size: 0.8em;
+        }
+        .links_nav{
+          width: 50px;
+           padding: 4px;
+        }
+        
+        /*header*/
+        header{
+          width: 100%;
+          min-height: 100px;
+          margin-bottom: 0px;
+          padding: 0px;
+        }
+        header h1{
+          font-size: 2em;
+        }
+        header h2{
+          font-size: 1.5em;
+        }
+        header .wrapper{
+          clear: both;
+        }
+        header .header_blocks:last-of-type{
+          padding-bottom: 40px;
+        }
+        
+        /*main*/
+        #cube{
+          -webkit-transform: scale(0.7);
+          transform: scale(0.7);
+          margin: 0 auto;
+        }
+        main h1{
+          font-size: 1.5em;
+          margin-top: 1em;
+          margin-bottom: 0em;
+        }
+        .line{
+          margin-top: 0px;
+        }
+        
+        /*footer*/
+        footer{
+          padding-bottom: 20px;
+        }
+        .wrapper .wrapper_blocks:first-of-type{
+          display: none;
+        }
+        .wrapper_blocks + .wrapper_blocks{
+          width: 100%;
+        }
+        footer ul.footer{
+          width: 33%;
+          float: left;
+          padding: 0px;
+          margin-left: 0px;
+          text-align: center;
+        }
+        .wrapper_blocks p.bottom_block:before{
+          content: "Copyright Alexandr Pasko, Wev Development, 2019";
+          position: absolute;
+          margin: 30px 30px 0px 10px;
+        }
+        .wrapper_blocks p.bottom_block{
+          position: absolute;
+          text-align: center;
+          top: 140px;
+          right: inherit;
+          margin-right: 0px;
+        }
+      }
+      
+/* if width is less than 530px */     
+      @media screen and (max-width: 530px){
+        .wrapper{
+          padding: 0 20px 0 20px;
+        }
+        main.wrapper{
+          padding: 1px 20px 40px 20px;
+          width: 100%;
+        }
+        nav{
+          height: 118px; /*120px*/
+        }
+        .logo_nav{
+          margin-top: 18px;
+        }
+        #main_nav{
+          width: 100%;
+          top: 90px;
+        } 
+        #main_nav .links_nav{
+          width: 20%;
+          padding-left: 0px;
+          padding-right: 0px;
+        }
+        #main_nav #search_icon{
+          width: 10%;
+          position: absolute;
+          right: 0px;
+          top: -65px;
+          -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+        }
+        #main_nav a{
+          width: 20%;
+          padding-left: 0px;
+          padding-right: 0px;
+          
+        }
+        div#main_nav a:first-child{
+          width: 20%;
+          padding-left: 0px;
+          padding-right: 0px;
+          margin-right: 0px;
+        }
+        /*header*/
+        header{
+          padding-top: 20px;
+        }
+        /*main*/
+        #cube{
+          -webkit-transform: scale(0.5);
+          transform: scale(0.5);
+          margin-top: -60px;
+          margin-bottom: -60px;
+        }
+        fieldset{
+          width: 80%;
+        }
+        label{
+          font-size: 0.8em;
+          width: 60%
+        }
+        input, textarea{
+          width: 100%;
+          right: 0px;
+        }
+      }
+/* if width is less than 430px */     
+      @media screen and (max-width: 430px){
+        header h1{
+          font-size: 1.5em;
+        }
+        header h2{
+          font-size: 1em;
+        }
+        header a{
+          font-size: 0.8em;
+        }
+        main h1{
+          font-size: 1.2em;
+        }
+        main h3{
+          font-size: 1.1em;
+        }
+        input[type=submit],
+        input[type=reset]{
+          font-size: 0.8em;
+        }
+        a strong{
+          font-size: 0.8em;
+          padding: 2px;
+        }
+        #cube{
+          -webkit-transform: scale(0.5) translate(-70px, -60px);
+          transform: scale(0.5) translate(-70px, -60px);
+          margin-top: -30px;
+          margin-bottom: -60px;
+        }
+        p{
+          font-size: 0.8em;
+        }
+        .wrapper_blocks p.bottom_block{
+          font-size: 0.6em;
+        }
+      }
+      
+/* if width is less than 365px */     
+      @media screen and (max-width: 365px){
+        #cube{
+          -webkit-transform: scale(0.4) translate(-170px, -140px);
+          transform: scale(0.4) translate(-170px, -140px);
+          margin-bottom: -140px;
+        }
+        footer{
+          padding: 0px 0px 0px 0px;
+        }
+        .wrapper_blocks p.bottom_block{
+          font-size: 0.5em;
+        }
+      }      
+      
+/* this style is for Ipad only */
+/* Note: device-width property should be used for that, but the property does not validate */      
+      @media screen and (width: 768px){ /*for Ipad*/
+        main.wrapper{
+          background-color: #ddf;
+        }
+        #search{
+          margin-right: 20px;
+        }
+        fieldset{
+          width: 100%;
+        }
+        label{
+          width: 20%
+        }
+        input, textarea{
+          width: 60%;
+          right: 0px;
+        }
+      }
+      
+
+    </style>
+    
+<!--Conditional Comments for Old IE Brousers-->
+       
+    <!--[if LT IE 9]>
+      <script src="old_ie.js"></script>
+      <style type="text/css">
+        nav div.wrapper:before{ 
+        content: "Please update you browser or use an alternateve browser to see the animation and the video on this website.";
+        color: #f00;
+        font-size: 1.2em;
+        }
+        header{
+        display: block;
+        margin-top: 60px;
+        }
+        .header_blocks a:hover{
+        color: #325460; 
+        border-color: #325460;
+        }
+        footer{
+        display: block;
+        padding: 0px;
+        }
+        .wrapper_blocks{
+        display: block;
+        }
+        .wrapper_blocks:first-child{
+        margin-top: 16px;
+        }
+        .wrapper_blocks:first-child p{
+        margin-bottom: 63px;
+        }
+        div#cube:before{
+        content: "The video is not supported by your browser.";
+        font-size: 1.2em;
+        color: #f00;
+        }
+      </style>
+    <![endif]-->
+    
+  </head>
+<!--
+
+   ALEXAN    DR         PASKOALE   XA     ND    RPASKO    AL    EX   ANDRPA     SKOALEX 
+  AL    EX   AN         DR          PA   SK    OA    LE   XAN   DR   PA   SK    OA    LE
+  AL    EX   AN         DR           PA SK     OA    LE   XAND  RP   AS    KO   AL    EX
+  ALEXANDR   PA         SKOALEXA      NDR      PASKOALE   XA ND RP   AS    KO   ALEXAND
+  AL    EX   AN         DR           PA SK     OA    LE   XA  NDRP   AS    KO   AL  EX 
+  AL    EX   AN         DR          PA   SK    OA    LE   XA   NDR   PA   SK    OA   LE
+  AL    EX   ANDRPASK   OALEXAND   RP     AS   KO    AL   EX    AN   DRPASK     OA    LE
+
+
+  ALEXAND     RPASKO     ALEXAND   RP    AS    KOALEX
+  AL    EX   AN    DR   PA         SK   OA    LE    XA
+  AL    EX   AN    DR   PA         SK  OA     LE    XA 
+  ALEXAND    RP    AS    KOALEX    ANDRP      AS    KO
+  AL         EXANDRPA         SK   OA  LE     XA    ND
+  AL         EX    AN         DR   PA   SK    OA    LE
+  AL         EX    AN   DRPASKO    AL    EX    ANDRPA
+ 
+id="Alexandr Pasko, Web Development Diploma, 2019";
+font-family: "ALEXANDR_PASKO", "no_need_backup_runs_everywhere";
+Cool font, hey?
+-->    
+  <body>
+  <!--Navigation-->
+    <nav>
+      <div class="wrapper">
+      
+        <div class="nav_blocks logo_nav">
+          <picture>
+            <source media="(min-width: 768px)" srcset="logo70px.png" />
+            <source media="(max-width: 767px)" srcset="logo50px.png" />
+            <img src="logo.svg" alt="logo" width="70" height="70" />
+          </picture>
+          
+        </div>
+        
+        <div class="nav_blocks" id="main_nav">
+          <a href="#"><div class="links_nav" id="home">Home</div></a>
+          <a href="#"><div class="links_nav" id="project">Projects</div></a>
+          <a href="#"><div class="links_nav" id="gallery">Gallery</div></a>
+          <a href="#"><div class="links_nav" id="blog">Blog</div></a>
+          <a href="#"><div class="links_nav" id="services">Services</div></a>
+          <a id="search_icon" href="#"><div  id="search" class="links_nav"><img src="search.svg" alt="search"></div></a>
+        </div>
+        
+        <div class="nav_blocks"></div>
+        
+      </div>
+    </nav>
+    
+<!--Header-->
+    <header>
+      <div class="wrapper">
+       
+        <div class="header_blocks">
+          <h1>Buck Bunny Media</h1>
+          <h2>CSS animation</h2>
+        </div>
+        
+        <div class="header_blocks">
+          <p>The harmony between modern web solutions
+           and exceptional user experience is what grows 
+           successful business. Let our team lead your 
+           business into next level where result exceeds 
+           expectation. </p>
+          <div><a href="#">Portfolio</a></div>
+        </div>
+      </div>
+    </header>
+    
+<!--Main Content-->    
+    <main class="wrapper">
+      <h1>3D Transform and Animation</h1>
+     
+      <div id="cube">
+        <div id="cube_body">
+          <div id="back_side" class="side"></div>
+          <div id="front_side" class="side">
+            <video controls width="450" height="450" poster="banny_poster.jpg">
+              <source src="bunny.mp4" type="video/mp4">
+              <source src="bunny.webm" type="video/webm">
+              Sorry, your browser does not support HTML5 Video.
+            </video>
+          </div>
+          <div id="top_side" class="side"></div>
+          <div id="bottom_side" class="side"></div>
+          <div id="left_side" class="side"></div>
+          <div id="right_side" class="side"></div>
+        </div>
+      </div>
+      
+      <div class="line"></div>
+      
+      <h1>HTML5 Form</h1>
+      <h3>Please submit evaluation form</h3>
+      
+      
+      <form id="first_form"
+            name="first-form"
+            method="post"
+            action="http://www.scott-media.com/test/form_display.php"
+            autocomplete="on">
+          
+        <fieldset>  <!--first block-->
+          <legend>Reviewer's info</legend>
+          <p>
+            <label for="first_name">First name: </label>
+            <input type="text"
+                   id="first_name" 
+                   name="first_name"
+                   required="required">  
+          </p>
+          <p>
+            <label for="last_name">Last name: </label>
+            <input type="text"
+                   id="last_name"
+                   name="last_name"
+                   required="required">
+          </p>
+          <p>
+            <label for="email">Email: </label>
+            <input type="email"
+                   id="email"
+                   name="email"
+                   placeholder="email@mail.com">
+          </p>
+          <p>
+            <label for="phone_number">Phone number: </label>
+            <input type="number"
+                   id="phone_number"
+                   name="phone_number">
+          </p>   
+        </fieldset> 
+              
+        <fieldset>
+          <legend>Evaluation (from 1 to 10)</legend>
+          
+          <p>
+            <label>CSS Animation: </label>
+            <input list="css_animation" name="css_animation" required="required" />
+            <datalist id="css_animation">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </datalist>
+          </p>
+          
+          <p>
+            <label>CSS Formatting: </label>
+            <input list="css_formatting" name="css_formatting" required="required" />
+            <datalist id="css_formatting">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </datalist>
+          </p>
+          
+          <p>
+            <label>Form Attributes: </label>
+            <input list="form_attributes" name="form_attributes" required="required" />
+            <datalist id="form_attributes">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </datalist>
+          </p>
+          
+          <p>
+            <label for="comments">Comments: </label>
+            <textarea id="comments"
+                      name="comments"
+                      placeholder="Please type here"
+                      rows="6">
+            </textarea>
+          </p>
+          
+          <p>
+            <label for="date">Date: </label>
+            <input type="date"
+                   id="date"
+                   name="date">
+          </p>               
+        </fieldset>
+                  
+        <div class="clear_both"></div>
+                   
+        <input type="submit" value="Submit">
+        <input type="reset" value="Clear">
+                     
+      </form>
+      <!--<div class="line"></div>-->
+    </main>
+    
+<!--Closure-->    
+    <p class="closure">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi laboriosam ab minus consequuntur. <br /> Doloremque nam minima qui id debitis incidunt!</p>
+    <div class="center"><a href="#" class="closure"><strong>Learn More</strong></a></div>
+    
+<!--Footer-->    
+    <footer>
+      <div class="wrapper">
+       
+        <div class="wrapper_blocks">
+          <a class="footer_links" href="#">About</a>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum porro, perferendis ullam placeat! Sapiente libero recusandae alias illo explicabo nostrum.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam fugiat quam!</p>
+          <div class="first_line"></div>
+          <p class="secondary_text">&copy; Alexandr Pasko, Web Development, 2019</p>
+        </div>
+        
+        <div class="wrapper_blocks wrapper_logo">
+          <div class="logo_footer"><img src="logo.svg" alt="logo"></div>
+        </div>
+        
+        <div class="wrapper_blocks">
+          <ul class="footer">
+            <li class="footer_links"><a href="#">Company</a></li>
+            <li class="secondary_links"><a href="#">About Us</a></li>
+            <li class="secondary_links"><a href="#">Contact Us</a></li>
+            <li class="secondary_links"><a href="#">Our Team</a></li>
+          </ul>
+          <ul class="footer">
+            <li class="footer_links"><a href="#">Media</a></li>
+            <li class="secondary_links"><a href="#">Instagram</a></li>
+            <li class="secondary_links"><a href="#">YouTube</a></li>
+            <li class="secondary_links"><a href="#">Facebook</a></li>
+          </ul>
+          <ul class="footer">
+            <li class="footer_links"><a href="#">Connect</a></li>
+            <li class="secondary_links"><a href="#">LinkedIn</a></li>
+            <li class="secondary_links"><a href="#">Twitter</a></li>
+          </ul>
+          <div class="footer_line"></div>
+          <p class="bottom_block">
+            <a class="bottom_links" href="#">Terms and Conditions</a> &#124;
+            <a class="bottom_links" href="#">Policy</a> &#124;
+            <a class="bottom_links" href="#">Legal</a> &#124;
+            <a class="bottom_links" href="#">Sitemap</a>
+          </p>
+        </div>
+        <p class="clear_both"></p>
+      </div>
+    </footer>
+    
+    
+    
+  </body>
+</html>
